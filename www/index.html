@@ -267,11 +267,11 @@ function onBackKeyDown() {
        <script>
             document.addEventListener("deviceready", onDeviceReady, false);
             function onDeviceReady() {
-                alert("Got deviceready");
+                //alert("Got deviceready");
             }
         
             function downloadPdf() {
-              alert('ppdf');
+              //alert('ppdf');
                 var fileTransfer = new FileTransfer();
                 var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-one.pdf");
                 var outputPath = cordova.file.externalDataDirectory + "hello-one.pdf";
@@ -301,17 +301,19 @@ function onBackKeyDown() {
                     });
             }
         </script>
+
+        <br>
 <div class="ui-block-b" style="width:70% !important;"><a href="#" onclick="downloadPdftwo();">Download PDF 2</a></div>
        <!-- <a href="index-man.html" class="resetpas" >User Manual</a> -->
 
        <script>
             document.addEventListener("deviceready", onDeviceReady, false);
             function onDeviceReady() {
-                alert("Got deviceready");
+                //alert("Got deviceready");
             }
         
             function downloadPdftwo() {
-              alert('ppdf');
+              //alert('ppdf');
                 var fileTransfer = new FileTransfer();
                 var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-two.pdf");
                 var outputPath = cordova.file.externalDataDirectory + "hello-two.pdf";
@@ -341,20 +343,311 @@ function onBackKeyDown() {
                     });
             }
         </script>
+
+        <br>
         <div class="ui-block-b" style="width:70% !important;"><a href="#" onclick="downloadPdfthree();">Download PDF 3</a></div>
        <!-- <a href="index-man.html" class="resetpas" >User Manual</a> -->
 
        <script>
             document.addEventListener("deviceready", onDeviceReady, false);
             function onDeviceReady() {
-                alert("Got deviceready");
+               // alert("Got deviceready");
             }
         
             function downloadPdfthree() {
-              alert('ppdf');
+              //alert('ppdf');
                 var fileTransfer = new FileTransfer();
                 var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-three.pdf");
                 var outputPath = cordova.file.externalDataDirectory + "hello-three.pdf";
+                
+                // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
+                alert("Starting download to " + outputPath);
+                fileTransfer.download(
+                      inputUri,
+                      outputPath,
+                    function (entry) {
+                        alert("Download complete: " + entry.fullPath + ", URL=" + entry.toURL());
+                        cordova.plugins.fileOpener2.open(
+                            entry.toURL(), // You can also use a Cordova-style file uri: cdvfile://localhost/persistent/Download/starwars.pdf
+                            'application/pdf',
+                            {
+                                error: function (e) {
+                                    alert('fileOpener2 error status: ' + e.status + ' - Error message: ' + e.message);
+                                },
+                                success: function () {
+                                    alert('fileOpener2 file opened successfully');
+                                }
+                            }
+                        );
+                    },
+                    function (error) {
+                        alert("download error: source=" + error.source + ", target=" + error.target + ", error code=" + error.code);
+                    });
+            }
+        </script>
+
+        <br>
+
+        <div class="ui-block-b" style="width:70% !important;"><a href="#" onclick="downloadPdffour();">Download PDF 4 cache</a></div>
+       <!-- <a href="index-man.html" class="resetpas" >User Manual</a> -->
+
+       <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                //alert("Got deviceready");
+            }
+        
+            function downloadPdffour() {
+              //alert('ppdf');
+                var fileTransfer = new FileTransfer();
+                var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-four.pdf");
+                var outputPath = cordova.file.externalCacheDirectry + "hello-four.pdf";
+                
+                // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
+                alert("Starting download to " + outputPath);
+                fileTransfer.download(
+                      inputUri,
+                      outputPath,
+                    function (entry) {
+                        alert("Download complete: " + entry.fullPath + ", URL=" + entry.toURL());
+                        cordova.plugins.fileOpener2.open(
+                            entry.toURL(), // You can also use a Cordova-style file uri: cdvfile://localhost/persistent/Download/starwars.pdf
+                            'application/pdf',
+                            {
+                                error: function (e) {
+                                    alert('fileOpener2 error status: ' + e.status + ' - Error message: ' + e.message);
+                                },
+                                success: function () {
+                                    alert('fileOpener2 file opened successfully');
+                                }
+                            }
+                        );
+                    },
+                    function (error) {
+                        alert("download error: source=" + error.source + ", target=" + error.target + ", error code=" + error.code);
+                    });
+            }
+        </script>
+        <br>
+        <div class="ui-block-b" style="width:70% !important;"><a href="#" onclick="downloadPdffive();">Download PDF 5 dataDirectory</a></div>
+       <!-- <a href="index-man.html" class="resetpas" >User Manual</a> -->
+
+       <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+               // alert("Got deviceready");
+            }
+        
+            function downloadPdffive() {
+              //alert('ppdf');
+                var fileTransfer = new FileTransfer();
+                var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-four.pdf");
+                var outputPath = cordova.file.dataDirectory + "hello-four.pdf";
+                
+                // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
+                alert("Starting download to " + outputPath);
+                fileTransfer.download(
+                      inputUri,
+                      outputPath,
+                    function (entry) {
+                        alert("Download complete: " + entry.fullPath + ", URL=" + entry.toURL());
+                        cordova.plugins.fileOpener2.open(
+                            entry.toURL(), // You can also use a Cordova-style file uri: cdvfile://localhost/persistent/Download/starwars.pdf
+                            'application/pdf',
+                            {
+                                error: function (e) {
+                                    alert('fileOpener2 error status: ' + e.status + ' - Error message: ' + e.message);
+                                },
+                                success: function () {
+                                    alert('fileOpener2 file opened successfully');
+                                }
+                            }
+                        );
+                    },
+                    function (error) {
+                        alert("download error: source=" + error.source + ", target=" + error.target + ", error code=" + error.code);
+                    });
+            }
+        </script>
+        <br>
+        <div class="ui-block-b" style="width:70% !important;"><a href="#" onclick="downloadPdfsix();">Download PDF 6 cacheDirectory</a></div>
+       <!-- <a href="index-man.html" class="resetpas" >User Manual</a> -->
+
+       <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                //alert("Got deviceready");
+            }
+        
+            function downloadPdfsix() {
+              //alert('ppdf');
+                var fileTransfer = new FileTransfer();
+                var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-four.pdf");
+                var outputPath = cordova.file.cacheDirectory + "hello-four.pdf";
+                
+                // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
+                alert("Starting download to " + outputPath);
+                fileTransfer.download(
+                      inputUri,
+                      outputPath,
+                    function (entry) {
+                        alert("Download complete: " + entry.fullPath + ", URL=" + entry.toURL());
+                        cordova.plugins.fileOpener2.open(
+                            entry.toURL(), // You can also use a Cordova-style file uri: cdvfile://localhost/persistent/Download/starwars.pdf
+                            'application/pdf',
+                            {
+                                error: function (e) {
+                                    alert('fileOpener2 error status: ' + e.status + ' - Error message: ' + e.message);
+                                },
+                                success: function () {
+                                    alert('fileOpener2 file opened successfully');
+                                }
+                            }
+                        );
+                    },
+                    function (error) {
+                        alert("download error: source=" + error.source + ", target=" + error.target + ", error code=" + error.code);
+                    });
+            }
+        </script>
+        <br>
+        <div class="ui-block-b" style="width:70% !important;"><a href="#" onclick="downloadPdfseven();">Download PDF 7 externalRootDirectory</a></div>
+       <!-- <a href="index-man.html" class="resetpas" >User Manual</a> -->
+
+       <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                //alert("Got deviceready");
+            }
+        
+            function downloadPdfseven() {
+              alert('ppdf');
+                var fileTransfer = new FileTransfer();
+                var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-four.pdf");
+                var outputPath = cordova.file.externalRootDirectory + "hello-four.pdf";
+                
+                // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
+                alert("Starting download to " + outputPath);
+                fileTransfer.download(
+                      inputUri,
+                      outputPath,
+                    function (entry) {
+                        alert("Download complete: " + entry.fullPath + ", URL=" + entry.toURL());
+                        cordova.plugins.fileOpener2.open(
+                            entry.toURL(), // You can also use a Cordova-style file uri: cdvfile://localhost/persistent/Download/starwars.pdf
+                            'application/pdf',
+                            {
+                                error: function (e) {
+                                    alert('fileOpener2 error status: ' + e.status + ' - Error message: ' + e.message);
+                                },
+                                success: function () {
+                                    alert('fileOpener2 file opened successfully');
+                                }
+                            }
+                        );
+                    },
+                    function (error) {
+                        alert("download error: source=" + error.source + ", target=" + error.target + ", error code=" + error.code);
+                    });
+            }
+        </script>
+        <br>
+        <div class="ui-block-b" style="width:70% !important;"><a href="#" onclick="downloadPdfeight();">Download PDF 8 externalApplicationStorageDirectory</a></div>
+       <!-- <a href="index-man.html" class="resetpas" >User Manual</a> -->
+
+       <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                //alert("Got deviceready");
+            }
+        
+            function downloadPdfeight() {
+              //alert('ppdf');
+                var fileTransfer = new FileTransfer();
+                var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-four.pdf");
+                var outputPath = cordova.file.externalApplicationStorageDirectory + "hello-four.pdf";
+                
+                // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
+                alert("Starting download to " + outputPath);
+                fileTransfer.download(
+                      inputUri,
+                      outputPath,
+                    function (entry) {
+                        alert("Download complete: " + entry.fullPath + ", URL=" + entry.toURL());
+                        cordova.plugins.fileOpener2.open(
+                            entry.toURL(), // You can also use a Cordova-style file uri: cdvfile://localhost/persistent/Download/starwars.pdf
+                            'application/pdf',
+                            {
+                                error: function (e) {
+                                    alert('fileOpener2 error status: ' + e.status + ' - Error message: ' + e.message);
+                                },
+                                success: function () {
+                                    alert('fileOpener2 file opened successfully');
+                                }
+                            }
+                        );
+                    },
+                    function (error) {
+                        alert("download error: source=" + error.source + ", target=" + error.target + ", error code=" + error.code);
+                    });
+            }
+        </script>
+        <br>
+        <div class="ui-block-b" style="width:70% !important;"><a href="#" onclick="downloadPdfnine();">Download PDF 8 applicationStorageDirectory</a></div>
+       <!-- <a href="index-man.html" class="resetpas" >User Manual</a> -->
+
+       <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                //alert("Got deviceready");
+            }
+        
+            function downloadPdfnine() {
+              //alert('ppdf');
+                var fileTransfer = new FileTransfer();
+                var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-four.pdf");
+                var outputPath = cordova.file.applicationStorageDirectory + "hello-four.pdf";
+                
+                // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
+                alert("Starting download to " + outputPath);
+                fileTransfer.download(
+                      inputUri,
+                      outputPath,
+                    function (entry) {
+                        alert("Download complete: " + entry.fullPath + ", URL=" + entry.toURL());
+                        cordova.plugins.fileOpener2.open(
+                            entry.toURL(), // You can also use a Cordova-style file uri: cdvfile://localhost/persistent/Download/starwars.pdf
+                            'application/pdf',
+                            {
+                                error: function (e) {
+                                    alert('fileOpener2 error status: ' + e.status + ' - Error message: ' + e.message);
+                                },
+                                success: function () {
+                                    alert('fileOpener2 file opened successfully');
+                                }
+                            }
+                        );
+                    },
+                    function (error) {
+                        alert("download error: source=" + error.source + ", target=" + error.target + ", error code=" + error.code);
+                    });
+            }
+        </script>
+        <br>
+        <div class="ui-block-b" style="width:70% !important;"><a href="#" onclick="downloadPdften();">Download PDF 10 applicationDirectory</a></div>
+       <!-- <a href="index-man.html" class="resetpas" >User Manual</a> -->
+
+       <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                //alert("Got deviceready");
+            }
+        
+            function downloadPdften() {
+              //alert('ppdf');
+                var fileTransfer = new FileTransfer();
+                var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-four.pdf");
+                var outputPath = cordova.file.applicationDirectory + "hello-four.pdf";
                 
                 // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
                 alert("Starting download to " + outputPath);
