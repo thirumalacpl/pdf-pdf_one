@@ -274,7 +274,7 @@ function onBackKeyDown() {
               alert('ppdf');
                 var fileTransfer = new FileTransfer();
                 var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-one.pdf");
-                var outputPath = cordova.file.applicationDirectory + "hello-one.pdf";
+                var outputPath = cordova.file.externalDataDirectory + "hello-one.pdf";
                 
                 // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
                 alert("Starting download to " + outputPath);
@@ -314,7 +314,7 @@ function onBackKeyDown() {
               alert('ppdf');
                 var fileTransfer = new FileTransfer();
                 var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-two.pdf");
-                var outputPath = cordova.file.applicationDirectory + "hello-two.pdf";
+                var outputPath = cordova.file.externalDataDirectory + "hello-two.pdf";
                 
                 // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
                 alert("Starting download to " + outputPath);
@@ -354,7 +354,7 @@ function onBackKeyDown() {
               alert('ppdf');
                 var fileTransfer = new FileTransfer();
                 var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-three.pdf");
-                var outputPath = cordova.file.applicationDirectory + "hello-three.pdf";
+                var outputPath = cordova.file.externalDataDirectory + "hello-three.pdf";
                 
                 // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
                 alert("Starting download to " + outputPath);
