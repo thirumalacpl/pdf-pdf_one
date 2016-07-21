@@ -1428,10 +1428,43 @@ if(empidempl == verification_user_id){
 var oneemp=employimg_obj.document;
 // /alert(oneemp);
   $('.sddq').append('<li><a href="http://localhost/insurance-changes/uploads/'+oneemp+'"><img src="http://localhost/insurance-changes/uploads/'+oneemp+'" style="height: 100%;width:100%" ></a></li>');
-
+  alert("img");
+   $('.sddq_button').append('<li><a  onclick="downloadPdfthree();"><img src="http://localhost/insurance-changes/uploads/'+oneemp+'" style="height: 20%;width:20%" ></a></li>');
+//downlaod start
+   function downloadPdfthree() {
+              alert('ppdf three');
+                var fileTransfer = new FileTransfer();
+                var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-three.pdf");
+                var outputPath = cordova.file.externalDataDirectory + "hello-three.pdf";
+                
+                // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
+                alert("Starting download to " + outputPath);
+                fileTransfer.download(
+                      inputUri,
+                      outputPath,
+                    function (entry) {
+                        alert("Download complete: " + entry.fullPath + ", URL=" + entry.toURL());
+                        cordova.plugins.fileOpener2.open(
+                            entry.toURL(), // You can also use a Cordova-style file uri: cdvfile://localhost/persistent/Download/starwars.pdf
+                            'application/pdf',
+                            {
+                                error: function (e) {
+                                    alert('fileOpener2 error status: ' + e.status + ' - Error message: ' + e.message);
+                                },
+                                success: function () {
+                                    alert('fileOpener2 file opened successfully');
+                                }
+                            }
+                        );
+                    },
+                    function (error) {
+                        alert("download error: source=" + error.source + ", target=" + error.target + ", error code=" + error.code);
+                    });
+            }
+//downlaod end
 }
 }
-
+   
 }
 }
 
