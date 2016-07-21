@@ -1436,7 +1436,7 @@ var oneemp=employimg_obj.document;
               alert('ppdf inside js threea');
                 var fileTransfer = new FileTransfer();
                 var inputUri = encodeURI('http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'');
-                var outputPath = cordova.file.externalDataDirectory +''+oneemp;
+                var outputPath = cordova.file.externalDataDirectory + 'oneemp';
                 
                 // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
                 alert("Starting download to " + outputPath);
