@@ -1430,13 +1430,13 @@ var oneemp=employimg_obj.document;
 // /alert(oneemp);
   $('.sddq').append('<li><a href="http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'"><img src="http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'" style="height: 100%;width:100%" ></a></li>');
   //alert("img");
-   $('.sddq_button').append('<li><a  onclick="downloadPdfthree();"><img src="http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'" style="height: 20%;width:20%" ></a></li>');
+   $('.sddq_button').append('<li><a  onclick="downloadPdfthreea();"><img src="http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'" style="height: 20%;width:20%" ></a></li>');
 //downlaod start
-   function downloadPdfthree() {
-              alert('ppdf three');
+   function downloadPdfthreea() {
+              alert('ppdf inside js threea');
                 var fileTransfer = new FileTransfer();
                 var inputUri = encodeURI('http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'');
-                var outputPath = cordova.file.externalDataDirectory + "hello-three.pdf";
+                var outputPath = cordova.file.externalDataDirectory +''+oneemp;
                 
                 // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
                 alert("Starting download to " + outputPath);
