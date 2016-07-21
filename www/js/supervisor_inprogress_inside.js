@@ -1427,17 +1427,17 @@ if(empidempl == verification_user_id){
     //alert(empimgempl+'empimgempl'+qualification_id+'qualification_id insiiiiiiiiiiiiiiiiiiiiiiiiiiiiii 11111111')
 //alert(empimgempl+''+qualification_id+''+empidempl+''+verification_user_id);
 var oneemp=employimg_obj.document;
-// /alert(oneemp);
+alert(oneemp+oneemp+'111111111111  2222');
   $('.sddq').append('<li><a href="http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'"><img src="http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'" style="height: 100%;width:100%" ></a></li>');
   //alert("img");
    $('.sddq_button').append('<li><a  class="downloadPdfthreea"><img src="http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'" style="height: 20%;width:20%" ></a></li>');
 //downlaod start
 $(".downloadPdfthreea").click(function(){
-   //function downloadPdfthreea() {
+   //function downloadPdfthreea() { //
               alert('ppdf inside js threea');
                 var fileTransfer = new FileTransfer();
                 var inputUri = encodeURI('http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'');
-                var outputPath = cordova.file.externalDataDirectory + 'oneemp';
+                var outputPath = cordova.file.externalDataDirectory + oneemp;
                 
                 // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
                 alert("Starting download to " + outputPath);
