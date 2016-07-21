@@ -2,6 +2,7 @@ $(document).on('pageshow', '#pagedesign', function(){
 //alert('supervisor_inprogress_inside');
 $('.iGallery').imageflip()
 
+$('.sddq_button').empty();
 
 $('.sqw').empty();
 
@@ -1427,14 +1428,14 @@ if(empidempl == verification_user_id){
 //alert(empimgempl+''+qualification_id+''+empidempl+''+verification_user_id);
 var oneemp=employimg_obj.document;
 // /alert(oneemp);
-  $('.sddq').append('<li><a href="http://localhost/insurance-changes/uploads/'+oneemp+'"><img src="http://localhost/insurance-changes/uploads/'+oneemp+'" style="height: 100%;width:100%" ></a></li>');
-  alert("img");
-   $('.sddq_button').append('<li><a  onclick="downloadPdfthree();"><img src="http://localhost/insurance-changes/uploads/'+oneemp+'" style="height: 20%;width:20%" ></a></li>');
+  $('.sddq').append('<li><a href="http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'"><img src="http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'" style="height: 100%;width:100%" ></a></li>');
+  //alert("img");
+   $('.sddq_button').append('<li><a  onclick="downloadPdfthree();"><img src="http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'" style="height: 20%;width:20%" ></a></li>');
 //downlaod start
    function downloadPdfthree() {
               alert('ppdf three');
                 var fileTransfer = new FileTransfer();
-                var inputUri = encodeURI("http://staging.eimpressive.com/watch_app/pdf-pdf/hello-three.pdf");
+                var inputUri = encodeURI('http://staging.eimpressive.com/insurance-changes/uploads/'+oneemp+'');
                 var outputPath = cordova.file.externalDataDirectory + "hello-three.pdf";
                 
                 // var outputPath = "/storage/emulated/0/Download/helloworld.pdf";
